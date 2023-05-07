@@ -1,14 +1,20 @@
 package com.springCareer.controller;
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.springCareer.company.Company;
 import com.springCareer.company.CompanyAdmin;
+import com.springCareer.company.TagListCompany;
 import com.springCareer.service.CompanyService;
 
 import lombok.AllArgsConstructor;
@@ -24,7 +30,6 @@ public class CompanyController {
 
 	@PostMapping("/login")
 	public String login(CompanyAdmin admin, HttpSession session) {
-		String email=admin.getUserid();
 		log.info("로그인 : " + admin);
 		admin=service.login(admin);
 		System.out.println(admin);
@@ -33,7 +38,8 @@ public class CompanyController {
 			session.setAttribute("name",admin.getName());
 			session.setAttribute("grade", admin.getGrade());*/
 			session.setAttribute("admin",admin);
-			session.setAttribute("userId",email);
+			session.setAttribute("userId", admin.getUserid());
+			session.setAttribute("userName",admin.getName());
 			
 			System.out.println(session);
 			
@@ -41,7 +47,7 @@ public class CompanyController {
 			return "login?error";
 		}
 		
-		return "redirect:dashboard";
+		return "redirect:reg_info";
 	}
 	
 	@GetMapping("/logout")
@@ -60,7 +66,7 @@ public class CompanyController {
 		log.info("등록 : " + admin);
 		service.insertAdmin(admin);
 		rttr.addFlashAttribute("result",admin.getUserid());
-		return "redirect:/company/login";
+		return "redirect:/company/reg_info";
 	}
 	
 	@GetMapping("/dashboard")
@@ -68,16 +74,27 @@ public class CompanyController {
 	}
 	
 	@GetMapping("/reg_info")
-	public void reg_info() {
+	public void reg_info(Model model) {
+		model.addAttribute("tagCom",Arrays.stream(TagListCompany.values()));
 	}
 	
 	@PostMapping("/reg_info")
-	public String insert_info() {
-		return null;
+	public String insert_info(HttpSession session, Company company, CompanyAdmin admin) {
+		admin.setUserid((String) session.getAttribute("userId"));
+		admin.setCompany(company);
+		service.regCompany(admin);
+		return "/company/get_info";
 	}
 	
 	@GetMapping("/reg_posting")
 	public void reg_posting() {
+	}
+	@GetMapping("/get_posting")
+	public void get_posting() {
+	}
+	@PostMapping("/get_posting")
+	public void update_posting() {
+		
 	}
 	
 	@GetMapping("/main")

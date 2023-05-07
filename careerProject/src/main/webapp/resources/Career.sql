@@ -37,17 +37,13 @@ CREATE TABLE company_admin(
     created_at DATE
 );
 CREATE TABLE company(
-    business_no NUMBER CONSTRAINT pk_company_business_no PRIMARY KEY,
-    company_name VARCHAR2(50 CHAR),
-    c_size VARCHAR2(20),
-    c_intro VARCHAR2(1000 CHAR),
-    c_pic VARCHAR2(20 CHAR),
-    tech VARCHAR2(20 CHAR),
-    c_sale number,
-    condition VARCHAR2(50 CHAR),
-    benefit VARCHAR2(20 CHAR),
-    create_at DATE,
-    CONSTRAINT fk_jobBoard_id FOREIGN KEY (c_id) REFERENCES company(c_id)
+    business_number NUMBER CONSTRAINT pk_company_business_no PRIMARY KEY,
+    name VARCHAR2(50 CHAR),
+    address VARCHAR2(20),
+    discription VARCHAR2(1000 CHAR),
+    homepage VARCHAR2(20 CHAR),
+    logo VARCHAR2(20 CHAR),
+    create_at DATE
     ); 
 
 CREATE TABLE careerBoard(

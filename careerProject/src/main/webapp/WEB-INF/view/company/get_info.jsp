@@ -40,38 +40,38 @@
                                 <div class="form-group">
                                 	<label>회사명</label>
                                     <input type="text" class="form-control bg-light border-0 small" name="name"
-                                        placeholder="${company.name }">
+                                        placeholder="${company.name }" readonly="readonly">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                     	<label>사업자등록번호</label>
                                         <input type="text" class="form-control bg-light border-0 small" 
-                                           name="business_number" placeholder="" value="${company.business_number }">
+                                           name="business_number" placeholder="" value="${company.business_number }" readonly="readonly">
                                     </div>
                                     <div class="col-sm-6">
                                     	<label>회사 로고</label>
                                         <input type="text" class="form-control bg-light border-0 small" 
-                                            placeholder="" value="${company.logo }">
+                                            placeholder="" value="${company.logo }" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                 	<label>회사 대표주소</label>
 									<input type="text" class="form-control bg-light border-0 small"
-								  		name="address" placeholder="" value="${company.address }">
+								  		name="address" placeholder="" value="${company.address }" >
 								</div>
                                 <div class="form-group">
                                 	<label>회사 소개</label><sub>2000자 이내</sub>
                                     <textarea class="form-control bg-light border-0 small" rows="8"
-                                    	name="description" placeholder="ex) 성장기회의 평등을 추구합니다.">${company.description }</textarea>
+                                    	name="description" placeholder="ex) 성장기회의 평등을 추구합니다." >${company.description }</textarea>
                                 </div>
                                 <div class="form-group">
                                 	<label>홈페이지</label>
                                     <input type="text" class="form-control form-control-user" name="hompage"
-                                        placeholder="www.careerlab.com" value="${company.homepage }">
+                                        placeholder="www.careerlab.com" value="${company.homepage }" >
                                 </div>
                                  <hr>
                                 <button type="submit"  class="btn btn-primary btn-user btn-block">
-                                    저장하기
+                                    수정하기
                                 </button>
                             </form>
                            

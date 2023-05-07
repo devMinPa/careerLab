@@ -54,4 +54,24 @@
 		where
 				userid= #{userid}
 	</update> 
+
+	<insert id="regCompany">
+		insert into
+					company (business_number, name, address, discription, homepage, logo, created_at)
+		values
+					(#{business_number}, #{name}, #{address}, #{discription}, #{homepage}, 'logo', sysdate)
+	</insert>
+	
+	<update id="connAdmin">
+		update 
+				company_admin
+		set
+				business_number=#{company.business_number}
+		where		
+				userid=#{userid}
+	</update>
+	
+	<select id="getCompany" resultType="com.springCareer.company.Company">
+		select * from company where business_number= #{business_number}
+	</select>
 </mapper>

@@ -1,11 +1,10 @@
 package com.springCareer.service;
 
-import java.util.List;
-
+import com.springCareer.company.Company;
 import com.springCareer.company.CompanyAdmin;
 
 public interface CompanyService {
-	public void insertAdmin(CompanyAdmin company);
+	public CompanyAdmin insertAdmin(CompanyAdmin company);
 	
 //	public CompanyAdmin get(String email);
 //	
@@ -16,4 +15,6 @@ public interface CompanyService {
 //	public List<CompanyAdmin> getList();
 
 	public CompanyAdmin login(CompanyAdmin admin);
+
+	public void regCompany(CompanyAdmin admin);
 }

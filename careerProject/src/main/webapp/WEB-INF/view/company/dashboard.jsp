@@ -12,7 +12,7 @@
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 
-		<%@include file="../include/sidebar.jsp"%>
+		<%@include file="../include/sidebar2.jsp"%>
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
@@ -20,7 +20,7 @@
 			<!-- Main Content -->
 			<div id="content">
 			
-				<%@include file="../include/content_topbar.jsp"%>
+				<%@include file="../include/content.jsp"%>
 			
 				<!-- Begin Page Content -->
 				<div class="container-fluid">

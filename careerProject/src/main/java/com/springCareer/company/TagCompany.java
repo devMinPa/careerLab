@@ -8,5 +8,5 @@ import lombok.Data;
 @Data
 public class TagCompany {
 	private String businessNumber;
-	private String representativeCompany;
+	private TagListCompany representativeCompany;
 }

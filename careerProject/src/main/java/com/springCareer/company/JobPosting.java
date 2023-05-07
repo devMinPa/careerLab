@@ -23,8 +23,8 @@ public class JobPosting {
 	private String prefered_qualifications;	//우대조건-1000자
 	private String benefits;	//혜택-1000자
 	private String additional_comment;	//미래동료에게 한마디-1000자
-	private String status;		//임시저장,승인대기,승인실패 draft, waitingForApproval, approvalFailed, 
-								//모집중, 접수마감,채용종료 recruiting, closedNow, endOfEmployment
+	private String status;		//임시저장,승인대기,승인실패 draft, waitApproval, failedApproval, 
+								//모집중, 접수마감,채용종료 onRecruit, closedRecruit, endRecruit
 	
 	private Company company;
 }

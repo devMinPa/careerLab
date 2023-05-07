@@ -1,12 +1,13 @@
 package com.springCareer.company;
 
 
+
 import lombok.Data;
 
 @Data
 public class CompanyAdmin {
 	private String userid;
-	private String business_no;
+	private String business_number;
 	private String password;
 	private String name;
 	private String belong;

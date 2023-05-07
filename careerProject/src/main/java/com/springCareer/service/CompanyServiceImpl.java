@@ -1,9 +1,9 @@
 package com.springCareer.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.springCareer.company.Company;
 import com.springCareer.company.CompanyAdmin;
 import com.springCareer.mapper.CompanyMapper;
 
@@ -18,9 +18,12 @@ public class CompanyServiceImpl implements CompanyService {
 	private final CompanyMapper mapper;
 	
 	@Override
-	public void insertAdmin(CompanyAdmin admin) {
+	public CompanyAdmin insertAdmin(CompanyAdmin admin) {
 		log.info("register......" + admin);
-		mapper.insert(admin);
+		if(mapper.insert(admin) == 1)
+			return admin;
+		return null;
+		
 	}
 	
 //	@Override
@@ -49,14 +52,17 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Override
 	public CompanyAdmin login(CompanyAdmin admin) {
-		String email=admin.getUserid();
-		String password=admin.getPassword();
-		admin=mapper.login(admin);
-		
-		if(admin!=null)
-			return admin;
-		else
-			return null;		
+		return mapper.login(admin);
+	}
+	
+
+	@Transactional
+	@Override
+	public void regCompany(CompanyAdmin admin) {
+		if(admin != null) {
+			mapper.regCompany(admin.getCompany());
+			mapper.connAdmin(admin);
+		}
 	}
 
 

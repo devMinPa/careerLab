@@ -39,7 +39,7 @@ public class CareerBoardMapperTest {
 		log.info(career);
 	}
 
-//	@Test
+	@Test
 	public void testInsert() {
 		CareerBoardVO career = new CareerBoardVO();
 		for (int i = 0; i < 10; i++) {
