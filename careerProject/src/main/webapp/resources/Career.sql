@@ -27,7 +27,7 @@ CREATE TABLE users(
 );
 
 CREATE TABLE company_admin(
-    email VARCHAR2(50 CHAR) CONSTRAINT pk_company_cid PRIMARY KEY,
+    userid VARCHAR2(50 CHAR) CONSTRAINT pk_company_cid PRIMARY KEY,
     business_number VARCHAR2(20 CHAR),
     password VARCHAR2(30 CHAR),
     name VARCHAR2(30 CHAR),
@@ -36,6 +36,7 @@ CREATE TABLE company_admin(
     grade VARCHAR2(20 CHAR),
     created_at DATE
 );
+
 CREATE TABLE company(
     business_number NUMBER CONSTRAINT pk_company_business_no PRIMARY KEY,
     name VARCHAR2(50 CHAR),
